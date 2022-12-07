@@ -4,7 +4,6 @@ import MovieApiData from "../../Components/MovieApiData/MovieApiData";
 export default function MovieHome() {
   return (
     <>
-      <Header />
       <MovieApiData />
     </>
   );
