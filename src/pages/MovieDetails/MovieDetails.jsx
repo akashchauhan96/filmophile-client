@@ -1,3 +1,3 @@
 export default function MovieDetails() {
-  return <div>Hellow</div>;
+  return <div>Hello</div>;
 }
