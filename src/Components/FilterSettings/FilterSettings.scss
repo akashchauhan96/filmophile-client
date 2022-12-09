@@ -1,0 +1,28 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colours" as *;
+@use "../../App.scss" as *;
+
+.filter {
+  &__background {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    background-color: black;
+    opacity: 50%;
+    z-index: 2;
+  }
+
+  &__modal {
+    background-color: red;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 100px;
+    height: 100px;
+    z-index: 5;
+  }
+}

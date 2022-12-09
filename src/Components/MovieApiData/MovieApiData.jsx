@@ -2,8 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import SingleMoviePoster from "../SingleMoviePoster/SingleMoviePoster";
 import { v4 as uuidv4 } from "uuid";
+import FilterAndSearch from "../FilterAndSearch/FilterAndSearch";
 
-export default function MovieApiData() {
+export default function MovieApiData({ setOpenFilter }) {
   const [moviesArray, setMoviesArray] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -51,6 +52,7 @@ export default function MovieApiData() {
   if (moviesArray.length !== 0) {
     return (
       <>
+        <FilterAndSearch setOpenFilter={setOpenFilter} />
         <SingleMoviePoster
           moviesArray={currentMovie}
           loading={loading}

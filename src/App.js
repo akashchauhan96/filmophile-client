@@ -14,7 +14,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<MovieHome />} />
           <Route path="/movie/:id" element={<MovieDetails />} />
-          <Route path="/list" element={<UserMovieList />} />
+          <Route path="/movie-lists" element={<UserMovieList />} />
           <Route path="/list/new" element={<AddMovie />} />
         </Routes>
       </BrowserRouter>
