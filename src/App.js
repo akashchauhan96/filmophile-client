@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header/Header";
-import UserMovieList from "./pages/UserMovieList/UserMovieList";
+import MovieLists from "./pages/MovieLists/MovieLists";
 import MovieHome from "./pages/MovieHome/MovieHome";
 import MovieDetails from "./pages/MovieDetails/MovieDetails";
 import AddMovie from "./pages/AddMovie/AddMovie";
@@ -14,7 +14,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<MovieHome />} />
           <Route path="/movie/:id" element={<MovieDetails />} />
-          <Route path="/movie-lists" element={<UserMovieList />} />
+          <Route path="/movie-lists" element={<MovieLists />} />
           <Route path="/list/new" element={<AddMovie />} />
         </Routes>
       </BrowserRouter>

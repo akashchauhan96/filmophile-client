@@ -2,8 +2,6 @@
 @use "../../styles/partials/fonts" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/colours" as *;
-@use "../../App.scss" as *;
-
 .filter {
   display: flex;
   gap: 1rem;
@@ -45,7 +43,7 @@
   }
 
   &__search-input {
-    background-color: $background-primary-color;
+    background-color: transparent;
     border: none;
     flex: 1;
     color: $primary-text;

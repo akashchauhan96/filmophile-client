@@ -19,7 +19,7 @@ export default function Header() {
       <div className="header__user-section">
         <nav className="nav">
           <ul className="nav__lists">
-            <Link to="/list" className="nav__list-link">
+            <Link to="/movie-lists" className="nav__list-link">
               <li className="nav__list-item">Movie Lists</li>
             </Link>
           </ul>

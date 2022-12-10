@@ -2,7 +2,6 @@
 @use "../../styles/partials/fonts" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/colours" as *;
-@use "../../App.scss" as *;
 
 .header {
   background-color: $header-background-color;

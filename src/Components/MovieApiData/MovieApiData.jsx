@@ -44,6 +44,8 @@ export default function MovieApiData({ setOpenFilter }) {
     getMovies(count);
   }, []);
 
+  console.log(moviesArray[0]);
+
   //Get Current Post
   const indexOfLastMovie = currentPage * moviesPerPage;
   const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
