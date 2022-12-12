@@ -13,11 +13,12 @@ body {
   font-family: $playfair-display;
   background-image: linear-gradient(
     135deg,
-    $background-primary-color 20%,
+    $background-primary-color 40%,
     #29414b,
     #223340,
     $header-background-color
   );
   opacity: 90%;
   color: $primary-text;
+  background-repeat: no-repeat;
 }

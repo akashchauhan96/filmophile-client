@@ -3,5 +3,5 @@ import { useEffect } from "react";
 import axios from "axios";
 
 export default function CreateListButton() {
-  return <button className="add-list">Create a New List</button>;
+  return <button className="create-list">Create a New List</button>;
 }

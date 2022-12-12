@@ -8,19 +8,22 @@ export default function MovieListCards() {
   const [renderMovieLists, setRenderMovieLists] = useState(false);
   useEffect(() => {
     const serverURL = process.env.REACT_APP_SERVER_URL;
+    console.log(serverURL);
     const getMoviesList = async () => {
       try {
         const resp = await axios.get(`${serverURL}/movie-lists`);
+        console.log(resp);
         if (resp.data.length === 0) {
           setRenderMovieLists(false);
-          setGetAxios(resp.data);
         } else {
+          setGetAxios(resp.data);
           setRenderMovieLists(true);
         }
       } catch (err) {
         console.log(err);
       }
     };
+    getMoviesList();
   }, []);
   return (
     <>
@@ -42,14 +45,14 @@ export default function MovieListCards() {
                   <div className="movie-lists__movie-images">
                     <div className="movie_lists__single-movie-image">
                       <img
-                        src={resp.data[0].movie_img_url}
+                        src={getAxios[0].movie_img_url}
                         alt="Image of movie poster of the first movie in user's list"
                       />
                     </div>
                     <div className="movie_lists__single-movie-image">
-                      {resp.data[1] ? (
+                      {moviecard[1] ? (
                         <img
-                          src={resp.data[1].movie_img_url}
+                          src={getAxios[1].movie_img_url}
                           alt="Image of movie poster of the second movie in user's list"
                         />
                       ) : (
@@ -57,9 +60,9 @@ export default function MovieListCards() {
                       )}
                     </div>
                     <div className="movie_lists__single-movie-image">
-                      {resp.data[2] ? (
+                      {getAxios[2] ? (
                         <img
-                          src={resp.data[2].movie_img_url}
+                          src={getAxios[2].movie_img_url}
                           alt="Image of movie poster of the second movie in user's list"
                         />
                       ) : (
@@ -69,13 +72,13 @@ export default function MovieListCards() {
                   </div>
                   <div className="movie-lists__movie-info">
                     <h2 className="movie-lists__movie-title">
-                      {resp.data.name}
+                      {moviecard.name}
                     </h2>
                     <p className="movie-lists__total-movies">
-                      {resp.data.number_of_movies}
+                      Number of movies {moviecard.number_of_movies}
                     </p>
                     <p className="movie-lists__movie-description">
-                      {resp.data.description}
+                      {moviecard.description}
                     </p>
                   </div>
                 </div>

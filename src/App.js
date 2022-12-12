@@ -3,7 +3,7 @@ import Header from "./Components/Header/Header";
 import MovieLists from "./pages/MovieLists/MovieLists";
 import MovieHome from "./pages/MovieHome/MovieHome";
 import MovieDetails from "./pages/MovieDetails/MovieDetails";
-import AddMovie from "./pages/AddMovie/AddMovie";
+import NewMovieList from "./pages/NewMovieList/NewMovieList";
 import "./App.scss";
 
 export default function App() {
@@ -15,7 +15,7 @@ export default function App() {
           <Route path="/" element={<MovieHome />} />
           <Route path="/movie/:id" element={<MovieDetails />} />
           <Route path="/movie-lists" element={<MovieLists />} />
-          <Route path="/list/new" element={<AddMovie />} />
+          <Route path="/movie-lists/add" element={<NewMovieList />} />
         </Routes>
       </BrowserRouter>
     </>
