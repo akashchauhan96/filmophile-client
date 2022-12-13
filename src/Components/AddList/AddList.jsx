@@ -100,7 +100,7 @@ export default function AddList() {
         ];
         filmList.release_year = [
           ...newFilmList.map((movie) => {
-            return movie.release_year;
+            return parseInt(movie.release_date.substring(0, 4));
           }),
         ];
         filmList.image_url = [
@@ -112,6 +112,8 @@ export default function AddList() {
               return imageBaseURL + url;
             }),
         ];
+
+        console.log(filmList);
 
         axios
           .post(`${axiosServerURL}/movie-lists`, filmList)
@@ -152,7 +154,6 @@ export default function AddList() {
         return selectedMovieId !== movie.id;
       })
     );
-    console.log(typeof newFilmList);
   };
 
   return (

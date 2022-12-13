@@ -34,7 +34,7 @@ export default function MovieListCards() {
         ) : (
           getAxios.map((moviecard) => {
             return (
-              <div className="movie-lists__card">
+              <div className="movie-lists__card" key={moviecard.id}>
                 <div className="movie-lists__icon-container">
                   <img
                     src={deleteIcon}
@@ -45,14 +45,14 @@ export default function MovieListCards() {
                   <div className="movie-lists__movie-images">
                     <div className="movie_lists__single-movie-image">
                       <img
-                        src={getAxios[0].movie_img_url}
+                        src={getAxios[0].image_url}
                         alt="Image of movie poster of the first movie in user's list"
                       />
                     </div>
                     <div className="movie_lists__single-movie-image">
-                      {moviecard[1] ? (
+                      {getAxios[1] ? (
                         <img
-                          src={getAxios[1].movie_img_url}
+                          src={getAxios[1].image_url}
                           alt="Image of movie poster of the second movie in user's list"
                         />
                       ) : (
@@ -62,7 +62,7 @@ export default function MovieListCards() {
                     <div className="movie_lists__single-movie-image">
                       {getAxios[2] ? (
                         <img
-                          src={getAxios[2].movie_img_url}
+                          src={getAxios[2].image_url}
                           alt="Image of movie poster of the second movie in user's list"
                         />
                       ) : (

@@ -1,7 +1,10 @@
 import "./CreateListButton.scss";
-import { useEffect } from "react";
-import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function CreateListButton() {
-  return <button className="create-list">Create a New List</button>;
+  return (
+    <Link to="/movie-lists/add" className="create-list">
+      Create a New List
+    </Link>
+  );
 }
