@@ -56,6 +56,7 @@ export default function MovieApiData({ setOpenFilter }) {
       <>
         <FilterAndSearch setOpenFilter={setOpenFilter} />
         <SingleMoviePoster
+          setLoading={setLoading}
           moviesArray={currentMovie}
           loading={loading}
           axiosBaseURL={axiosBaseURL}

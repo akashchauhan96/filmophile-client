@@ -2,3 +2,118 @@
 @use "../../styles/partials/fonts" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/colours" as *;
+
+.movie-lists {
+  font-family: $playfair-display;
+  background-image: linear-gradient(
+    135deg,
+    $background-primary-color 20%,
+    #29414b,
+    #223340,
+    $header-background-color
+  );
+  padding: 1.5rem 1.5rem;
+
+  @include desktop {
+    margin: 0 auto;
+  }
+
+  &__button-container {
+    text-align: center;
+  }
+
+  &__create-button {
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    background-color: $accent-color;
+    width: auto;
+    display: inline-block;
+    border-radius: 0.625rem;
+    color: $primary-text;
+    font-family: $open-sans;
+
+    &:hover {
+      background-color: darkgreen;
+      transform: scale(1.1);
+    }
+  }
+
+  &__title {
+    color: $secondary-text;
+    text-align: start;
+    margin: 2rem 0;
+    border-bottom: 1px solid $secondary-text;
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  &__card {
+    background-color: #07090c;
+    opacity: 60%;
+    padding: 1.75rem 1rem;
+    width: 100%;
+    box-shadow: 0 3px 10px #fff;
+    border-radius: 0.625rem;
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0px 0px 0px 0.1875rem $accent-color inset;
+    }
+  }
+
+  &__icon-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__single-list {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__images-container {
+    display: flex;
+  }
+
+  &__image {
+    width: 3.75rem;
+    height: 5.625rem;
+    object-fit: cover;
+    border-radius: 0.625rem;
+    border: 1px solid $primary-text;
+    z-index: 5;
+    position: relative;
+
+    &--empty {
+      background-color: #849494;
+    }
+  }
+
+  &__movie-info {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  &__movie-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__total-movies {
+    font-size: 0.625rem;
+    color: $secondary-text;
+  }
+
+  &__movie-description {
+    color: $secondary-text;
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+  }
+}

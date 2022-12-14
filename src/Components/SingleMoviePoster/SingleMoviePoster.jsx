@@ -1,13 +1,10 @@
 import "./SingleMoviePoster.scss";
-import axios from "axios";
 
-export default function SingleMoviePoster({ moviesArray, loading }) {
+export default function SingleMoviePoster({ moviesArray }) {
   const imageBaseURL = "https://image.tmdb.org/t/p/original";
   const split = moviesArray[0].release_date.substring(0, 4);
   console.log(split);
-  if (loading) {
-    return <h2>Loading...</h2>;
-  }
+
   console.log(moviesArray);
   return (
     <>
