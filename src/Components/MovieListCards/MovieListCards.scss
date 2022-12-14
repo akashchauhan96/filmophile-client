@@ -4,17 +4,10 @@
 @use "../../styles/partials/colours" as *;
 
 .movie-lists {
-  font-family: $playfair-display;
-  background-image: linear-gradient(
-    135deg,
-    $background-primary-color 20%,
-    #29414b,
-    #223340,
-    $header-background-color
-  );
   padding: 1.5rem 1.5rem;
 
-  @include desktop {
+  @include tablet {
+    width: 40.625rem;
     margin: 0 auto;
   }
 
@@ -52,10 +45,16 @@
     gap: 1.5rem;
   }
 
+  &__card-link {
+    text-decoration: none;
+    color: $primary-text;
+    width: 100%;
+  }
+
   &__card {
     background-color: #07090c;
     opacity: 60%;
-    padding: 1.75rem 1rem;
+    padding: 1rem 1rem calc(13.427px + 16px);
     width: 100%;
     box-shadow: 0 3px 10px #fff;
     border-radius: 0.625rem;
@@ -71,11 +70,28 @@
     justify-content: flex-end;
   }
 
+  &__delete-icon {
+    cursor: pointer;
+  }
+
+  &__info-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
   &__single-list {
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: center;
+      gap: 2rem;
+    }
   }
 
   &__images-container {
@@ -90,6 +106,7 @@
     border: 1px solid $primary-text;
     z-index: 5;
     position: relative;
+    flex: 1;
 
     &--empty {
       background-color: #849494;
@@ -99,21 +116,84 @@
   &__movie-info {
     text-align: center;
     margin-top: 1rem;
+
+    @include tablet {
+      text-align: left;
+      margin-top: 0;
+      flex: 1;
+    }
   }
 
   &__movie-title {
     font-size: 1rem;
     margin-bottom: 0.5rem;
+    font-family: $playfair-display;
+
+    @include tablet {
+      font-size: 1.5rem;
+    }
   }
 
   &__total-movies {
     font-size: 0.625rem;
     color: $secondary-text;
+    font-family: $open-sans;
+
+    @include tablet {
+      font-size: 1rem;
+    }
   }
 
   &__movie-description {
     color: $secondary-text;
     font-size: 0.75rem;
     margin-top: 0.5rem;
+    font-family: $open-sans;
+
+    @include tablet {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__view-button {
+    display: inline-block;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.625rem;
+    border: none;
+    background-color: $accent-color;
+    color: $primary-text;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: $open-sans;
+
+    &:hover {
+      background-color: darkgreen;
+      color: $primary-text;
+    }
+  }
+
+  &__empty-card {
+    background-color: #14181c;
+    text-align: center;
+    border-radius: 0.3125rem;
+    box-shadow: 0 2px 5px $primary-text;
+    height: 15rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  &__empty-title {
+    font-size: 1rem;
+    padding: 3rem 0 1rem;
+  }
+
+  &__empty-description {
+    font-size: 0.75rem;
+    color: $secondary-text;
+    padding-bottom: 3rem;
   }
 }

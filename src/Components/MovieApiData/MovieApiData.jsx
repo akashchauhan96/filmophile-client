@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import SingleMoviePoster from "../SingleMoviePoster/SingleMoviePoster";
 import { v4 as uuidv4 } from "uuid";
 import FilterAndSearch from "../FilterAndSearch/FilterAndSearch";
+import "./MovieApiData.scss";
 
 export default function MovieApiData({ setOpenFilter }) {
   const [moviesArray, setMoviesArray] = useState([]);
@@ -53,7 +54,7 @@ export default function MovieApiData({ setOpenFilter }) {
 
   if (moviesArray.length !== 0) {
     return (
-      <>
+      <section className="movie-database">
         <FilterAndSearch setOpenFilter={setOpenFilter} />
         <SingleMoviePoster
           setLoading={setLoading}
@@ -62,7 +63,7 @@ export default function MovieApiData({ setOpenFilter }) {
           axiosBaseURL={axiosBaseURL}
           axiosApiKey={axiosApiKey}
         />
-      </>
+      </section>
     );
   }
 }

@@ -202,6 +202,8 @@
   }
 
   &__cancel-button {
+    text-decoration: none;
+    display: inline-block;
     font-size: 0.8331rem;
     padding: 0.5rem 0;
     border: none;
@@ -210,6 +212,7 @@
     color: $primary-text;
     border-radius: 0.3125rem;
     width: 7rem;
+    text-align: center;
 
     cursor: pointer;
 
@@ -224,6 +227,7 @@
     text-align: center;
     border-radius: 0.3125rem;
     box-shadow: 0 2px 5px $primary-text;
+    margin-bottom: 2rem;
   }
 
   &__new-film {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { isEmpty } from "validator";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import "./AddList.scss";
 import deleteIcon from "../../assets/icons/delete-icon.svg";
@@ -279,7 +279,11 @@ export default function AddList() {
                       .filter((movie) => {
                         const searchQuery = filmSearch.toLowerCase();
                         const movieName = movie.title.toLowerCase();
-                        return searchQuery && movieName.includes(searchQuery);
+                        return (
+                          searchQuery &&
+                          movieName.includes(searchQuery) &&
+                          isSearching
+                        );
                       })
                       .map((movie) => {
                         return (
@@ -305,9 +309,9 @@ export default function AddList() {
                 >
                   Save
                 </button>
-                <button className="add-list__cancel-button" type="button">
+                <Link to="/" className="add-list__cancel-button" type="button">
                   Cancel
-                </button>
+                </Link>
               </div>
             </div>
             <div className="add-list__added-films">

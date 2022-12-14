@@ -7,9 +7,9 @@ import { Link } from "react-router-dom";
 export default function MovieListCards() {
   const [getAxios, setGetAxios] = useState([]);
   const [uniqueIds, setUniqueIds] = useState([]);
+  const serverURL = process.env.REACT_APP_SERVER_URL;
 
   useEffect(() => {
-    const serverURL = process.env.REACT_APP_SERVER_URL;
     console.log(serverURL);
     const getMoviesList = async () => {
       try {
@@ -17,8 +17,7 @@ export default function MovieListCards() {
         console.log(resp.data);
         const uniqueId = uniqueIdFilter(resp.data);
         const duplicateId = duplicateIdFilter(resp.data);
-        const uniqueIdArray = uniqueId.concat(duplicateId);
-        console.log(uniqueIdArray);
+        let uniqueIdArray = uniqueId.concat(duplicateId);
         setUniqueIds(uniqueIdArray);
         setGetAxios(resp.data);
       } catch (err) {
@@ -65,6 +64,18 @@ export default function MovieListCards() {
     return result;
   };
 
+  const handleOnClick = async (id) => {
+    id = id.toString();
+    console.log(serverURL);
+    const res = await axios.delete(`${serverURL}/movie-lists/${id}`);
+    const newList = await axios.get(`${serverURL}/movie-lists`);
+    const uniqueId = uniqueIdFilter(newList.data);
+    const duplicateId = duplicateIdFilter(newList.data);
+    let uniqueIdArray = uniqueId.concat(duplicateId);
+    setUniqueIds(uniqueIdArray);
+    setGetAxios(newList.data);
+  };
+
   return (
     <section className="movie-lists">
       <div className="movie-lists__button-container">
@@ -74,8 +85,16 @@ export default function MovieListCards() {
       </div>
       <h2 className="movie-lists__title">Your Current Lists</h2>
       <article className="movie-lists__cards">
-        {!getAxios ? (
-          <div className="movie-lists__empty-card"></div>
+        {!getAxios.length ? (
+          <div className="movie-lists__empty-card">
+            <h3 className="movie-lists__empty-title">
+              Your list is currently empty
+            </h3>
+            <p className="movie-lists__empty-description">
+              Create a new film list of your own choosing by clicking on the
+              Create A New List button.
+            </p>
+          </div>
         ) : (
           <>
             {uniqueIds.map((id) => {
@@ -85,96 +104,116 @@ export default function MovieListCards() {
                     <img
                       src={deleteIcon}
                       alt="Delete icon represented by an X symbol"
+                      className="movie-lists__delete-icon"
+                      onClick={() => handleOnClick(id)}
                     />
                   </div>
-                  <div className="movie-lists__single-list">
-                    <div className="movie-lists__images-container">
-                      {getAxios.filter((movie) => {
-                        return movie.id === id;
-                      }).length === 1
-                        ? getAxios
-                            .filter((movie) => {
+                  <div className="movie-lists__info-button">
+                    <div className="movie-lists__single-list">
+                      <div className="movie-lists__images-container">
+                        {getAxios.filter((movie) => {
+                          return movie.id === id;
+                        }).length === 1
+                          ? getAxios
+                              .filter((movie) => {
+                                return movie.id === id;
+                              })
+                              .map((item) => {
+                                return (
+                                  <>
+                                    <img
+                                      key={id}
+                                      src={item.image_url}
+                                      alt="Image of movie poster of the first movie in user's list"
+                                      className="movie-lists__image"
+                                    />
+                                    <div className="movie-lists__image movie-lists__image--empty"></div>
+                                    <div className="movie-lists__image movie-lists__image--empty"></div>
+                                  </>
+                                );
+                              })
+                          : getAxios.filter((movie) => {
                               return movie.id === id;
-                            })
-                            .map((item) => {
-                              return (
-                                <>
-                                  <img
-                                    key={id}
-                                    src={item.image_url}
-                                    alt="Image of movie poster of the first movie in user's list"
-                                    className="movie-lists__image"
-                                  />
-                                  <div className="movie-lists__image movie-lists__image--empty"></div>
-                                  <div className="movie-lists__image movie-lists__image--empty"></div>
-                                </>
-                              );
-                            })
-                        : getAxios.filter((movie) => {
+                            }).length === 2
+                          ? getAxios
+                              .filter((movie) => {
+                                return movie.id === id;
+                              })
+                              .slice(0, 2)
+                              .map((item) => {
+                                return (
+                                  <>
+                                    <img
+                                      key={id}
+                                      src={item.image_url}
+                                      alt="Image of movie poster of the first movie in user's list"
+                                      className="movie-lists__image"
+                                    />
+                                  </>
+                                );
+                              })
+                          : getAxios.filter((movie) => {
+                              return movie.id === id;
+                            }).length >= 3
+                          ? getAxios
+                              .filter((movie, index) => {
+                                return movie.id === id;
+                              })
+                              .slice(0, 3)
+                              .map((item) => {
+                                return (
+                                  <>
+                                    <img
+                                      key={id}
+                                      src={item.image_url}
+                                      alt="Image of movie poster of the first movie in user's list"
+                                      className="movie-lists__image"
+                                    />
+                                  </>
+                                );
+                              })
+                          : ""}
+                      </div>
+                      <div className="movie-lists__movie-info">
+                        <h2 className="movie-lists__movie-title" key={id}>
+                          {
+                            getAxios.find((movie) => {
+                              return movie.id === id;
+                            }).name
+                          }
+                        </h2>
+                        <p className="movie-lists__total-movies" key={id}>
+                          {`Number of Movies:
+                            ${
+                              getAxios.find((movie) => {
+                                return movie.id === id;
+                              }).number_of_movies
+                            }
+                          `}
+                        </p>
+                        <p className="movie-lists__movie-description" key={id}>
+                          {getAxios.find((movie) => {
                             return movie.id === id;
-                          }).length === 2
-                        ? getAxios
-                            .filter((movie) => {
-                              return movie.id === id;
-                            })
-                            .slice(0, 2)
-                            .map((item) => {
-                              return (
-                                <>
-                                  <img
-                                    key={id}
-                                    src={item.image_url}
-                                    alt="Image of movie poster of the first movie in user's list"
-                                    className="movie-lists__image"
-                                  />
-                                </>
-                              );
-                            })
-                        : getAxios.filter((movie) => {
-                            return movie.id === id;
-                          }).length >= 3
-                        ? getAxios
-                            .filter((movie, index) => {
-                              return movie.id === id;
-                            })
-                            .slice(0, 3)
-                            .map((item) => {
-                              return (
-                                <>
-                                  <img
-                                    key={id}
-                                    src={item.image_url}
-                                    alt="Image of movie poster of the first movie in user's list"
-                                    className="movie-lists__image"
-                                  />
-                                </>
-                              );
-                            })
-                        : ""}
+                          }).description.length >= 10
+                            ? getAxios
+                                .find((movie) => {
+                                  return movie.id === id;
+                                })
+                                .description.slice(0, 10) + "..."
+                            : getAxios
+                                .find((movie) => {
+                                  return movie.id === id;
+                                })
+                                .description.slice(0, 10)}
+                        </p>
+                      </div>
                     </div>
-                    <div className="movie-lists__movie-info">
-                      <h2 className="movie-lists__movie-title" key={id}>
-                        {
-                          getAxios.find((movie) => {
-                            return movie.id === id;
-                          }).name
-                        }
-                      </h2>
-                      <p className="movie-lists__total-movies" key={id}>
-                        {
-                          getAxios.find((movie) => {
-                            return movie.id === id;
-                          }).name
-                        }
-                      </p>
-                      <p className="movie-lists__movie-description" key={id}>
-                        {
-                          getAxios.find((movie) => {
-                            return movie.id === id;
-                          }).name
-                        }
-                      </p>
-                    </div>
+                    <Link
+                      to={`/movie-lists/${id}`}
+                      className="movie-lists__view-button"
+                    >
+                      View Movies
+                    </Link>
                   </div>
                 </div>
               );

@@ -3,6 +3,8 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/colours" as *;
 
-.movie-database {
-  padding-bottom: 3rem;
+.footer {
+  width: 100%;
+  background-color: $header-background-color;
+  height: 5rem;
 }
