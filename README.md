@@ -2,6 +2,21 @@
 
 Filmophile is a movie database that renders the most popular movies from The Movie Database API and allows user to add and delete movies into their own custom movie list (eg. Horror movies from 2022, Movies The Inspire Me, etc). Many movie streaming database websites such as Netflix don't have that feature so my app helps to provide that functionality.
 
+## ENV Info for Client Side
+
+REACT_APP_PORT
+REACT_APP_CLIENT_URL
+REACT_APP_SERVER_URL
+REACT_APP_TMDB_API_BASE_URL="https://api.themoviedb.org/3"
+REACT_APP_API_KEY_QUERY
+
+## ENV Info for Server Side
+
+PORT
+DB_USER
+DB_PASSWORD
+DB_NAME
+
 ## Installation Instructions
 
 ### Server side setup
