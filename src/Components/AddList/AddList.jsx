@@ -113,8 +113,6 @@ export default function AddList() {
             }),
         ];
 
-        console.log(filmList);
-
         axios
           .post(`${axiosServerURL}/movie-lists`, filmList)
           .then(() => {
@@ -178,6 +176,7 @@ export default function AddList() {
                 }`}
                 type="text"
                 name="name"
+                autoComplete="off"
                 value={name}
                 placeholder="Enter movie list name"
                 onChange={(e) => {
@@ -212,6 +211,7 @@ export default function AddList() {
                 }`}
                 type="text"
                 name="description"
+                autoComplete="off"
                 value={description}
                 placeholder="Enter movie list description"
                 onChange={(e) => {
@@ -242,6 +242,7 @@ export default function AddList() {
                     }`}
                     type="text"
                     name="filmSearch"
+                    autoComplete="off"
                     value={filmSearch}
                     placeholder="Enter name of film"
                     onChange={handleFilmSearch}

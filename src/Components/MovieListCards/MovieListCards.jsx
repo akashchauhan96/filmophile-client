@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 export default function MovieListCards() {
   const [getAxios, setGetAxios] = useState([]);
   const [uniqueIds, setUniqueIds] = useState([]);
+  const [twoMoviesList, setTwoMoviesList] = useState(null);
   const serverURL = process.env.REACT_APP_SERVER_URL;
 
   useEffect(() => {
@@ -18,6 +19,18 @@ export default function MovieListCards() {
         const uniqueId = uniqueIdFilter(resp.data);
         const duplicateId = duplicateIdFilter(resp.data);
         let uniqueIdArray = uniqueId.concat(duplicateId);
+        for (let i = 0; i < uniqueIdArray.length; i++) {
+          if (
+            getAxios.filter((movie) => {
+              return movie.id === uniqueIdArray[i];
+            }).length === 2
+          ) {
+            const twoMovies = getAxios.filter((movie) => {
+              return movie.id === uniqueIdArray[i];
+            });
+            setTwoMoviesList(twoMovies);
+          }
+        }
         setUniqueIds(uniqueIdArray);
         setGetAxios(resp.data);
       } catch (err) {
@@ -25,7 +38,7 @@ export default function MovieListCards() {
       }
     };
     getMoviesList();
-  }, []);
+  }, [uniqueIds]);
 
   const uniqueIdFilter = (array) => {
     let uniqueIdArray = array;
@@ -76,6 +89,21 @@ export default function MovieListCards() {
     setGetAxios(newList.data);
   };
 
+  const twoMoviesFilter = (uniqueIdArray) => {
+    for (let i = 0; i < uniqueIdArray.length; i++) {
+      if (
+        getAxios.filter((movie) => {
+          return movie.id === uniqueIdArray[i];
+        }).length === 2
+      ) {
+        const twoMovies = getAxios.filter((movie) => {
+          return movie.id === uniqueIdArray[i];
+        });
+        setTwoMoviesList(twoMovies);
+      }
+    }
+  };
+
   return (
     <section className="movie-lists">
       <div className="movie-lists__button-container">
@@ -83,7 +111,7 @@ export default function MovieListCards() {
           Create A New List
         </Link>
       </div>
-      <h2 className="movie-lists__title">Your Current Lists</h2>
+      <h2 className="movie-lists__title">Your Movie Lists</h2>
       <article className="movie-lists__cards">
         {!getAxios.length ? (
           <div className="movie-lists__empty-card">
@@ -113,66 +141,66 @@ export default function MovieListCards() {
                       <div className="movie-lists__images-container">
                         {getAxios.filter((movie) => {
                           return movie.id === id;
-                        }).length === 1
-                          ? getAxios
-                              .filter((movie) => {
-                                return movie.id === id;
-                              })
-                              .map((item) => {
-                                return (
-                                  <>
-                                    <img
-                                      key={id}
-                                      src={item.image_url}
-                                      alt="Image of movie poster of the first movie in user's list"
-                                      className="movie-lists__image"
-                                    />
-                                    <div className="movie-lists__image movie-lists__image--empty"></div>
-                                    <div className="movie-lists__image movie-lists__image--empty"></div>
-                                  </>
-                                );
-                              })
-                          : getAxios.filter((movie) => {
+                        }).length === 1 ? (
+                          getAxios
+                            .filter((movie) => {
                               return movie.id === id;
-                            }).length === 2
-                          ? getAxios
-                              .filter((movie) => {
-                                return movie.id === id;
-                              })
-                              .slice(0, 2)
-                              .map((item) => {
-                                return (
-                                  <>
-                                    <img
-                                      key={id}
-                                      src={item.image_url}
-                                      alt="Image of movie poster of the first movie in user's list"
-                                      className="movie-lists__image"
-                                    />
-                                  </>
-                                );
-                              })
-                          : getAxios.filter((movie) => {
+                            })
+                            .map((item) => {
+                              return (
+                                <>
+                                  <img
+                                    key={id}
+                                    src={item.image_url}
+                                    alt="Image of movie poster of the first movie in user's list"
+                                    className="movie-lists__image"
+                                  />
+                                  <div className="movie-lists__image movie-lists__image--empty"></div>
+                                  <div className="movie-lists__image movie-lists__image--empty"></div>
+                                </>
+                              );
+                            })
+                        ) : getAxios.filter((movie) => {
+                            return movie.id === id;
+                          }).length === 2 && twoMoviesList ? (
+                          <>
+                            <img
+                              key={id}
+                              src={twoMoviesList[0].image_url}
+                              alt="Image of movie poster of the first movie in user's list"
+                              className="movie-lists__image"
+                            />
+                            <img
+                              key={id}
+                              src={twoMoviesList[1].image_url}
+                              alt="Image of movie poster of the first movie in user's list"
+                              className="movie-lists__image"
+                            />
+                            <div className="movie-lists__image movie-lists__image--empty"></div>
+                          </>
+                        ) : getAxios.filter((movie) => {
+                            return movie.id === id;
+                          }).length >= 3 ? (
+                          getAxios
+                            .filter((movie) => {
                               return movie.id === id;
-                            }).length >= 3
-                          ? getAxios
-                              .filter((movie, index) => {
-                                return movie.id === id;
-                              })
-                              .slice(0, 3)
-                              .map((item) => {
-                                return (
-                                  <>
-                                    <img
-                                      key={id}
-                                      src={item.image_url}
-                                      alt="Image of movie poster of the first movie in user's list"
-                                      className="movie-lists__image"
-                                    />
-                                  </>
-                                );
-                              })
-                          : ""}
+                            })
+                            .slice(0, 3)
+                            .map((item) => {
+                              return (
+                                <>
+                                  <img
+                                    key={id}
+                                    src={item.image_url}
+                                    alt="Image of movie poster of the first movie in user's list"
+                                    className="movie-lists__image"
+                                  />
+                                </>
+                              );
+                            })
+                        ) : (
+                          ""
+                        )}
                       </div>
                       <div className="movie-lists__movie-info">
                         <h2 className="movie-lists__movie-title" key={id}>
