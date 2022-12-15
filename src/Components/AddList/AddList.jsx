@@ -4,7 +4,6 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import "./AddList.scss";
 import deleteIcon from "../../assets/icons/delete-icon.svg";
-import { v4 as uuidv4 } from "uuid";
 
 export default function AddList() {
   const [name, setName] = useState("");
