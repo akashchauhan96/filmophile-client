@@ -15,14 +15,19 @@
     color: $primary-text;
   }
 
+  &__logo-icon {
+    width: 2rem;
+  }
+
   &__logo-container {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    cursor: pointer;
   }
 
   &__logo-name {
-    font-size: 1.5rem;
+    font-size: 1rem;
     line-height: 2rem;
   }
 
@@ -49,7 +54,7 @@
   &__list-link {
     text-decoration: none;
     font-family: $open-sans;
-    font-size: 1rem;
+    font-size: 0.75rem;
     list-style: none;
     padding: none;
   }

@@ -4,5 +4,141 @@
 @use "../../styles/partials/colours" as *;
 
 .movie-database {
-  padding-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 2rem 1rem 4rem;
+
+  &__load-button {
+    padding: 0.5rem 1.5rem;
+    background-color: $accent-color;
+    color: $primary-text;
+    font-size: $p-mobile;
+    border: none;
+    width: fit-content;
+    align-self: center;
+    border-radius: 0.625rem;
+
+    &:hover {
+      background-color: darkgreen;
+    }
+  }
+}
+
+.search {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  border-bottom: 1px solid $secondary-text;
+  padding-bottom: 1rem;
+
+  &__results-container {
+    flex: 3;
+  }
+
+  &__results-title {
+    font-family: $playfair-display;
+    font-size: $h2-mobile;
+  }
+
+  &__results-number {
+    font-family: $open-sans;
+    font-size: $p-mobile;
+  }
+
+  &__outer-container {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__inner-container {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border: 2px solid $accent-color;
+    border-radius: 0.625rem;
+  }
+
+  &__reset-container {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: darkorange;
+    border-radius: 0.625rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(154, 99, 31);
+    }
+  }
+
+  &__reset-title {
+    font-family: $open-sans;
+  }
+
+  &__reset-icon {
+    padding-top: 0.1rem;
+    width: 1rem;
+    fill: $primary-text;
+  }
+
+  &__input {
+    background-color: transparent;
+    border: none;
+    color: $primary-text;
+    outline: none;
+    width: 6rem;
+
+    &::placeholder {
+      font-size: 0.75rem;
+    }
+
+    @include tablet {
+      width: 15rem;
+    }
+  }
+
+  &__icon {
+    width: 1rem;
+  }
+}
+
+.no-result {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+
+  &__heading {
+    width: 60%;
+    text-align: center;
+    font-family: $open-sans;
+    font-size: $h2-mobile;
+    color: $primary-text;
+  }
+
+  &__return-statement {
+    color: darkorange;
+  }
+
+  &__animation-container {
+    display: flex;
+    width: 21.875rem;
+  }
+
+  &__return-button {
+    background-color: darkorange;
+    color: $primary-text;
+    padding: 0.5rem 1.5rem;
+    font-family: $open-sans;
+    font-size: 1rem;
+    border-radius: 0.625rem;
+    text-decoration: none;
+    border: none;
+
+    &:hover {
+      background-color: rgb(154, 99, 31);
+    }
+  }
 }

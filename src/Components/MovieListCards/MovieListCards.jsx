@@ -87,21 +87,6 @@ export default function MovieListCards() {
     setGetAxios(newList.data);
   };
 
-  const twoMoviesFilter = (uniqueIdArray) => {
-    for (let i = 0; i < uniqueIdArray.length; i++) {
-      if (
-        getAxios.filter((movie) => {
-          return movie.id === uniqueIdArray[i];
-        }).length === 2
-      ) {
-        const twoMovies = getAxios.filter((movie) => {
-          return movie.id === uniqueIdArray[i];
-        });
-        setTwoMoviesList(twoMovies);
-      }
-    }
-  };
-
   return (
     <section className="movie-lists">
       <div className="movie-lists__button-container">
