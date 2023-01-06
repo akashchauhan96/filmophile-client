@@ -119,7 +119,7 @@ export default function MovieListCards() {
                       onClick={() => handleOnClick(id)}
                     />
                   </div>
-                  <div className="movie-lists__info-button">
+                  <div className="movie-lists__info-section">
                     <div className="movie-lists__single-list">
                       <div className="movie-lists__images-container">
                         {getAxios.filter((movie) => {
@@ -194,28 +194,25 @@ export default function MovieListCards() {
                           }
                         </h2>
                         <p className="movie-lists__total-movies" key={id}>
-                          {`Number of Movies:
+                          {`
                             ${
                               getAxios.find((movie) => {
                                 return movie.id === id;
                               }).number_of_movies
-                            }
-                          `}
+                            } Movies`}
                         </p>
                         <p className="movie-lists__movie-description" key={id}>
                           {getAxios.find((movie) => {
                             return movie.id === id;
-                          }).description.length >= 10
+                          }).description.length >= 65
                             ? getAxios
                                 .find((movie) => {
                                   return movie.id === id;
                                 })
-                                .description.slice(0, 10) + "..."
-                            : getAxios
-                                .find((movie) => {
-                                  return movie.id === id;
-                                })
-                                .description.slice(0, 10)}
+                                .description.slice(0, 65) + "..."
+                            : getAxios.find((movie) => {
+                                return movie.id === id;
+                              }).description}
                         </p>
                       </div>
                     </div>

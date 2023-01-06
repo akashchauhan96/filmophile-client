@@ -43,6 +43,7 @@
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
+    z-index: -5;
   }
 
   &__card-link {
@@ -53,7 +54,7 @@
 
   &__card {
     background-color: #07090c;
-    opacity: 60%;
+    opacity: 100%;
     padding: 1rem 1rem calc(13.427px + 16px);
     width: 100%;
     box-shadow: 0 3px 10px #fff;
@@ -74,7 +75,7 @@
     cursor: pointer;
   }
 
-  &__info-button {
+  &__info-section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -86,21 +87,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 
     @include tablet {
       flex-direction: row;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.95rem;
     }
   }
 
   &__images-container {
     display: flex;
+
+    @include tablet {
+      align-self: flex-start;
+    }
   }
 
   &__image {
-    width: 3.75rem;
-    height: 5.625rem;
+    width: 20vw;
+    height: 30vw;
+    max-width: 8rem;
+    max-height: 12rem;
     object-fit: cover;
     border-radius: 0.625rem;
     border: 1px solid $primary-text;
@@ -110,6 +118,11 @@
 
     &--empty {
       background-color: #849494;
+    }
+
+    @include tablet {
+      width: 4rem;
+      height: 6rem;
     }
   }
 
@@ -125,7 +138,8 @@
   }
 
   &__movie-title {
-    font-size: 1rem;
+    text-transform: uppercase;
+    font-size: 1.25rem;
     margin-bottom: 0.5rem;
     font-family: $playfair-display;
 
@@ -135,7 +149,7 @@
   }
 
   &__total-movies {
-    font-size: 0.625rem;
+    font-size: 0.75rem;
     color: $secondary-text;
     font-family: $open-sans;
 
@@ -146,7 +160,7 @@
 
   &__movie-description {
     color: $secondary-text;
-    font-size: 0.75rem;
+    font-size: 1rem;
     margin-top: 0.5rem;
     font-family: $open-sans;
 
