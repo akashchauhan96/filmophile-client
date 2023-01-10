@@ -51,7 +51,7 @@
   &__movie-info {
     position: absolute;
     bottom: 0;
-    background-color: $primary-text;
+    background-color: #21836f;
     border-bottom-left-radius: 0.625rem;
     border-bottom-right-radius: 0.625rem;
     transition: 0.5s ease;
@@ -62,14 +62,14 @@
 
   &__movie-title {
     font-size: 0.75rem;
-    color: $background-secondary-color;
+    color: $primary-text;
     text-align: center;
     margin-bottom: 0.25rem;
   }
 
   &__movie-release {
     font-size: 0.75rem;
-    color: $header-background-color;
+    color: $primary-text;
     text-align: center;
     font-family: $open-sans;
   }

@@ -111,6 +111,15 @@ export default function AddList() {
               return imageBaseURL + url;
             }),
         ];
+        filmList.backdrop_url = [
+          ...newFilmList
+            .map((movie) => {
+              return movie.backdrop_path;
+            })
+            .map((url) => {
+              return imageBaseURL + url;
+            }),
+        ];
 
         axios
           .post(`${axiosServerURL}/movie-lists`, filmList)

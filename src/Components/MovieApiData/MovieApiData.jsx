@@ -7,6 +7,7 @@ import resetIcon from "../../assets/icons/reset-icon.svg";
 import "./MovieApiData.scss";
 import Lottie from "lottie-react";
 import resultNotFound from "../../assets/motion-graphics/NoResult.json";
+import loading from "../../assets/motion-graphics/Loading.json";
 
 export default function MovieApiData() {
   const [moviesArray, setMoviesArray] = useState([]);
@@ -35,7 +36,7 @@ export default function MovieApiData() {
         const resp = await axios.get(
           `${axiosBaseURL}/discover/movie${axiosApiKey}&page=${count}`
         );
-        if (count <= 5) {
+        if (count <= 20) {
           count++;
           getMovies(count);
           movies = movies.concat(resp.data.results);
@@ -51,6 +52,8 @@ export default function MovieApiData() {
     };
     getMovies(count);
   }, []);
+
+  console.log(moviesArray);
 
   const handleOnChange = (event) => {
     setSearch(event.target.value);
@@ -102,9 +105,13 @@ export default function MovieApiData() {
     setMoviesPerPage(10);
   };
 
-  console.log(moviesArray[0]);
-
-  if (moviesArray.length !== 0) {
+  if (moviesArray.length === 0) {
+    return (
+      <div className="loading">
+        <Lottie animationData={loading} loop={true} />
+      </div>
+    );
+  } else if (moviesArray.length !== 0) {
     return (
       <section className="movie-database">
         <div className="search">
