@@ -3,6 +3,7 @@ import Header from "./Components/Header/Header";
 import MovieLists from "./pages/MovieLists/MovieLists";
 import MovieHome from "./pages/MovieHome/MovieHome";
 import NewMovieList from "./pages/NewMovieList/NewMovieList";
+import EditMovieList from "./pages/EditMovieList/EditMovieList";
 import SingleList from "./pages/SingleList/SingleList";
 import Footer from "./Components/Footer/Footer";
 import "./App.scss";
@@ -17,6 +18,7 @@ export default function App() {
           <Route path="/movie-lists" element={<MovieLists />} />
           <Route path="/movie-lists/:id" element={<SingleList />} />
           <Route path="/movie-lists/add" element={<NewMovieList />} />
+          <Route path="/movie-lists/edit/:id" element={<EditMovieList />} />
         </Routes>
         <Footer />
       </BrowserRouter>
