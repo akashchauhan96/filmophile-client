@@ -18,6 +18,9 @@ body {
     #223340,
     $header-background-color
   );
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   opacity: 90%;
   color: $primary-text;
   background-repeat: no-repeat;

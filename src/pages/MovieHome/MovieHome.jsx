@@ -4,7 +4,7 @@ import MovieApiData from "../../Components/MovieApiData/MovieApiData";
 export default function MovieHome() {
   return (
     <>
-      <Hero />
+      {/* <Hero /> */}
       <MovieApiData />
     </>
   );

@@ -16,7 +16,7 @@
     color: $secondary-text;
     text-align: start;
     border-bottom: 1px solid $secondary-text;
-    margin-bottom: 2rem;
+    margin: 4rem 0 2rem;
   }
 
   &__name-container {
@@ -285,5 +285,6 @@
     font-size: 0.75rem;
     color: $secondary-text;
     padding-bottom: 3rem;
+    margin-bottom: 10rem;
   }
 }
