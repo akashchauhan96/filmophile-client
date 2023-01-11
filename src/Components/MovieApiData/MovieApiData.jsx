@@ -22,12 +22,6 @@ export default function MovieApiData() {
   const axiosBaseURL = process.env.REACT_APP_TMDB_API_BASE_URL;
   const axiosApiKey = process.env.REACT_APP_API_KEY_QUERY;
 
-  let items = [];
-
-  for (let i = 1; i <= 10; i++) {
-    items[i - 1] = i;
-  }
-
   useEffect(() => {
     let count = 1;
     let movies = [];

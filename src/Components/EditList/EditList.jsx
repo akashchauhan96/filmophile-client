@@ -39,7 +39,7 @@ export default function AddList() {
         const resp = await axios.get(
           `${axiosBaseURL}/discover/movie${axiosApiKey}&page=${count}`
         );
-        if (count <= 4) {
+        if (count <= 20) {
           count++;
           getMoviesFromAPI(count);
           movies = movies.concat(resp.data.results);
@@ -55,9 +55,25 @@ export default function AddList() {
       try {
         const resp = await axios.get(`${axiosServerURL}/movie-lists/${id}`);
         console.log(resp.data);
+        console.log(
+          resp.data[0].image_url.split("https://image.tmdb.org/t/p/original")[1]
+        );
         setName(resp.data[0].name);
         setDescription(resp.data[0].description);
-        setNewFilmList(resp.data);
+        const newData = resp.data.map((movie) => {
+          return {
+            title: movie.movie_name,
+            release_date: movie.release_year.toString(),
+            poster_path: movie.image_url.split(
+              "https://image.tmdb.org/t/p/original"
+            )[1],
+            backdrop_path: movie.backdrop_url.split(
+              "https://image.tmdb.org/t/p/original"
+            )[1],
+            id: movie.id,
+          };
+        });
+        setNewFilmList(newData);
       } catch (err) {
         console.log(err);
       }
@@ -65,6 +81,8 @@ export default function AddList() {
     getMoviesFromAPI(count);
     getMoviesOnList();
   }, []);
+
+  console.log(moviesArray);
 
   const handleOnSubmit = (e) => {
     const findMovie = moviesArray.find((movie) => {
@@ -138,9 +156,9 @@ export default function AddList() {
         ];
 
         axios
-          .post(`${axiosServerURL}/movie-lists`, filmList)
+          .put(`${axiosServerURL}/movie-lists/${id}`, filmList)
           .then(() => {
-            navigate(`/movie-lists`);
+            navigate(`/movie-lists/${id}`);
           })
           .catch((err) => {
             console.log(err);
@@ -347,17 +365,15 @@ export default function AddList() {
                       <div className="add-list__film-info">
                         <div className="add-list__img-container">
                           <img
-                            src={movie.image_url}
-                            alt={movie.movie_name}
+                            src={imageBaseURL + movie.poster_path}
+                            alt={movie.title}
                             className="add-list__film-img"
                           />
                         </div>
                         <div className="add-list__film-description">
-                          <h3 className="add-list__film-name">
-                            {movie.movie_name}
-                          </h3>
+                          <h3 className="add-list__film-name">{movie.title}</h3>
                           <p className="add-list__release-year">
-                            {movie.release_date}
+                            {movie.release_date.substring(0, 4)}
                           </p>
                         </div>
                       </div>
