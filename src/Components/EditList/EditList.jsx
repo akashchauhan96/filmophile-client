@@ -5,7 +5,7 @@ import axios from "axios";
 import "./EditList.scss";
 import deleteIcon from "../../assets/icons/delete-icon.svg";
 
-export default function AddList() {
+export default function EditList() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(true);
@@ -200,7 +200,7 @@ export default function AddList() {
     <>
       {!loading && (
         <section className="add-list">
-          <h2 className="add-list__title">New List</h2>
+          <h2 className="add-list__title">Edit List</h2>
           <form className="add-list__form" onSubmit={handleOnSubmit}>
             <div
               className={`add-list__name-container ${
@@ -352,7 +352,11 @@ export default function AddList() {
                 >
                   Save
                 </button>
-                <Link to="/" className="add-list__cancel-button" type="button">
+                <Link
+                  to={`/movie-lists/${id}`}
+                  className="add-list__cancel-button"
+                  type="button"
+                >
                   Cancel
                 </Link>
               </div>

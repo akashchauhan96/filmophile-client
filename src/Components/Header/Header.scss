@@ -8,7 +8,20 @@
   padding: 1.5rem 1rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+
+  &__content-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    @include tablet {
+      max-width: 63.75rem;
+      margin: 0 auto;
+    }
+  }
 
   &__logo-link {
     text-decoration: none;

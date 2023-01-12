@@ -56,10 +56,12 @@ export default function SingleListMovies() {
         <p className="single-list__description">
           {moviesOnList[0].description}
         </p>
-        <button className="single-list__edit-list" onClick={handleOnClick}>
-          <img src={editIcon} alt="Edit icon represented by a pencil" />
-          Edit This Movie List
-        </button>
+        <div className="single-list__button-container">
+          <button className="single-list__edit-list" onClick={handleOnClick}>
+            <img src={editIcon} alt="Edit icon represented by a pencil" />
+            Edit This Movie List
+          </button>
+        </div>
         <div className="single-list__movies">
           {moviesOnList.map((movie) => {
             return (

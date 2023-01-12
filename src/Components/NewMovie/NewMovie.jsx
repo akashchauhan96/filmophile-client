@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { isEmpty } from "validator";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useParams } from "react-router-dom";
 import axios from "axios";
-import "./AddList.scss";
+import "./NewMovie.scss";
 import deleteIcon from "../../assets/icons/delete-icon.svg";
 
-export default function AddList() {
+export default function NewMovie() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(true);
@@ -26,10 +26,12 @@ export default function AddList() {
 
   const navigate = useNavigate();
 
+  const { id } = useParams();
+
   useEffect(() => {
     let count = 1;
     let movies = [];
-    const getMovies = async (count) => {
+    const getMoviesFromAPI = async (count) => {
       setLoading(true);
       try {
         const resp = await axios.get(
@@ -37,18 +39,24 @@ export default function AddList() {
         );
         if (count <= 20) {
           count++;
-          getMovies(count);
+          getMoviesFromAPI(count);
           movies = movies.concat(resp.data.results);
         } else {
           setMoviesArray(movies);
+          const selectedMovie = movies.filter((movie) => {
+            return parseInt(id) === movie.id;
+          });
+          setNewFilmList(selectedMovie);
           setLoading(false);
         }
       } catch (err) {
         console.log(err);
       }
     };
-    getMovies(count);
+    getMoviesFromAPI(count);
   }, []);
+
+  console.log(moviesArray);
 
   const handleOnSubmit = (e) => {
     const findMovie = moviesArray.find((movie) => {
@@ -152,9 +160,7 @@ export default function AddList() {
   };
 
   const handleDelete = (selectedMovieId) => {
-    console.log(newFilmList[0].id);
     const filteredMovies = [...newFilmList];
-    console.log(...newFilmList);
     setNewFilmList(
       filteredMovies.filter((movie) => {
         return selectedMovieId !== movie.id;

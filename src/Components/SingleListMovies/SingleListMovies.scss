@@ -26,6 +26,11 @@
     align-items: center;
     margin: 1rem 1rem 2rem;
     gap: 1rem;
+
+    @include tablet {
+      max-width: 63.75rem;
+      margin: 1rem auto 2rem;
+    }
   }
   &__profile-container {
     width: 40px;
@@ -41,11 +46,28 @@
   }
   &__title {
     margin: 0 1rem 1rem;
+
+    @include tablet {
+      max-width: 63.75rem;
+      margin: 0 auto 1rem;
+    }
   }
   &__description {
     margin: 0 1rem 2rem;
     font-family: $open-sans;
     color: $secondary-text;
+
+    @include tablet {
+      max-width: 63.75rem;
+      margin: 0 auto 2rem;
+    }
+  }
+
+  &__button-container {
+    @include tablet {
+      max-width: 63.75rem;
+      margin: 0 auto;
+    }
   }
   &__edit-list {
     display: flex;
@@ -57,7 +79,7 @@
     color: $primary-text;
     cursor: pointer;
     border-radius: 0.625rem;
-    margin: 0 1rem 2rem;
+    margin: 0 0 2rem;
 
     &:hover {
       background-color: darkgreen;
@@ -72,6 +94,12 @@
     flex-wrap: wrap;
     gap: 1.5rem;
     align-items: flex-start;
+
+    @include tablet {
+      max-width: 63.75rem;
+      margin: 0 auto;
+      padding: 2rem 0 3rem;
+    }
   }
   &__movie-card {
     width: 25vw;
