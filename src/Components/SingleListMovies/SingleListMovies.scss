@@ -19,6 +19,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top;
   }
   &__user {
     display: flex;
@@ -32,6 +33,7 @@
   &__profile-pic {
     width: 100%;
     border-radius: 50%;
+    border: 0.0625rem solid $accent-color;
   }
   &__user-details {
     font-size: 0.75rem;
@@ -41,7 +43,7 @@
     margin: 0 1rem 1rem;
   }
   &__description {
-    margin: 0 1rem 1rem;
+    margin: 0 1rem 2rem;
     font-family: $open-sans;
     color: $secondary-text;
   }
@@ -63,7 +65,8 @@
   }
   &__movies {
     border-top: 2px solid $secondary-text;
-    padding: 2rem 1rem;
+    padding: 2rem 0 3rem;
+    margin: 0 1rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

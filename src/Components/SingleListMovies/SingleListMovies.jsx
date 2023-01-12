@@ -58,7 +58,7 @@ export default function SingleListMovies() {
         </p>
         <button className="single-list__edit-list" onClick={handleOnClick}>
           <img src={editIcon} alt="Edit icon represented by a pencil" />
-          Edit or Delete Movie List
+          Edit This Movie List
         </button>
         <div className="single-list__movies">
           {moviesOnList.map((movie) => {
