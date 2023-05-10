@@ -6,7 +6,7 @@ import NewMovieList from "./pages/NewMovieList/NewMovieList";
 import EditMovieList from "./pages/EditMovieList/EditMovieList";
 import SingleList from "./pages/SingleList/SingleList";
 import AddNewMovie from "./pages/AddNewMovie/AddNewMovie";
-import Footer from "./Components/Footer/Footer";
+// import Footer from "./Components/Footer/Footer";
 import "./App.scss";
 
 export default function App() {
@@ -14,15 +14,16 @@ export default function App() {
     <>
       <BrowserRouter>
         <Header />
-        <Routes>
-          <Route path="/" element={<MovieHome />} />
-          <Route path="/movie-lists" element={<MovieLists />} />
-          <Route path="/movie-lists/:id" element={<SingleList />} />
-          <Route path="/movie-lists/add" element={<NewMovieList />} />
-          <Route path="/movie-lists/add/:id" element={<AddNewMovie />} />
-          <Route path="/movie-lists/edit/:id" element={<EditMovieList />} />
-        </Routes>
-        <Footer />
+        <div className="main-content">
+          <Routes>
+            <Route path="/" element={<MovieHome />} />
+            <Route path="/movie-lists" element={<MovieLists />} />
+            <Route path="/movie-lists/:id" element={<SingleList />} />
+            <Route path="/movie-lists/add" element={<NewMovieList />} />
+            <Route path="/movie-lists/add/:id" element={<AddNewMovie />} />
+            <Route path="/movie-lists/edit/:id" element={<EditMovieList />} />
+          </Routes>
+        </div>
       </BrowserRouter>
     </>
   );

@@ -9,6 +9,13 @@
   box-sizing: border-box;
 }
 
+.main-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 body {
   font-family: $playfair-display;
   background-image: linear-gradient(
@@ -19,8 +26,6 @@ body {
     $header-background-color
   );
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
   opacity: 90%;
   color: $primary-text;
   background-repeat: no-repeat;

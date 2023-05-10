@@ -8,6 +8,7 @@
   font-family: $open-sans;
 
   @include tablet {
+    width: 100%;
     max-width: 60rem;
     margin: 0 auto;
   }
