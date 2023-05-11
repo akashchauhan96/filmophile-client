@@ -22,7 +22,6 @@ export default function MovieApiData() {
 
   const axiosBaseURL = process.env.REACT_APP_TMDB_API_BASE_URL;
   const axiosApiKey = process.env.REACT_APP_API_KEY_QUERY;
-  const serverURL = process.env.REACT_APP_SERVER_URL;
 
   useEffect(() => {
     let count = 1;
@@ -32,7 +31,6 @@ export default function MovieApiData() {
         const resp = await axios.get(
           `${axiosBaseURL}/discover/movie${axiosApiKey}&page=${count}`
         );
-        // const filmList = await axios.get(`${serverURL}/movie-lists`);
         if (count <= 10) {
           count++;
           getMovies(count);
