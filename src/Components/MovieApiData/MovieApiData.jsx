@@ -33,7 +33,7 @@ export default function MovieApiData() {
           `${axiosBaseURL}/discover/movie${axiosApiKey}&page=${count}`
         );
         const filmList = await axios.get(`${serverURL}/movie-lists`);
-        if (count <= 20) {
+        if (count <= 10) {
           count++;
           getMovies(count);
           movies = movies.concat(resp.data.results);
