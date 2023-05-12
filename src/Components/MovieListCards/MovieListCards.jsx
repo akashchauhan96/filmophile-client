@@ -13,7 +13,7 @@ export default function MovieListCards() {
   useEffect(() => {
     const getMoviesList = async () => {
       try {
-        const resp = await axios.get(`${serverURL}/movie-lists`);
+        const resp = await axios.get(`/movie-lists`);
         const uniqueId = uniqueIdFilter(resp.data);
         const duplicateId = duplicateIdFilter(resp.data);
         let uniqueIdArray = uniqueId.concat(duplicateId);
