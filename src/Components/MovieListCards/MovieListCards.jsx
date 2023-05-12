@@ -13,7 +13,7 @@ export default function MovieListCards() {
   useEffect(() => {
     const getMoviesList = async () => {
       try {
-        const resp = await axios.get(`/movie-lists`);
+        const resp = await axios.get(`${serverURL}/movie-lists`);
         const uniqueId = uniqueIdFilter(resp.data);
         const duplicateId = duplicateIdFilter(resp.data);
         let uniqueIdArray = uniqueId.concat(duplicateId);
@@ -78,8 +78,8 @@ export default function MovieListCards() {
   const handleOnClick = async (id) => {
     id = id.toString();
     console.log(serverURL);
-    const res = await axios.delete(`/movie-lists/${id}`);
-    const newList = await axios.get(`/movie-lists`);
+    const res = await axios.delete(`${serverURL}/movie-lists/${id}`);
+    const newList = await axios.get(`${serverURL}/movie-lists`);
     const uniqueId = uniqueIdFilter(newList.data);
     const duplicateId = duplicateIdFilter(newList.data);
     let uniqueIdArray = uniqueId.concat(duplicateId);

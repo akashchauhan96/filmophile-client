@@ -122,7 +122,7 @@ export default function AddList() {
         ];
 
         axios
-          .post(`/movie-lists`, filmList)
+          .post(`${axiosServerURL}/movie-lists`, filmList)
           .then(() => {
             navigate(`/movie-lists`);
           })
