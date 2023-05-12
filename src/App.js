@@ -6,7 +6,6 @@ import NewMovieList from "./pages/NewMovieList/NewMovieList";
 import EditMovieList from "./pages/EditMovieList/EditMovieList";
 import SingleList from "./pages/SingleList/SingleList";
 import AddNewMovie from "./pages/AddNewMovie/AddNewMovie";
-// import Footer from "./Components/Footer/Footer";
 import "./App.scss";
 
 export default function App() {
