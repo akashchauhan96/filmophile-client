@@ -21,7 +21,6 @@ export default function AddList() {
   const axiosBaseURL = process.env.REACT_APP_TMDB_API_BASE_URL;
   const axiosApiKey = process.env.REACT_APP_API_KEY_QUERY;
   const axiosServerURL = process.env.REACT_APP_SERVER_URL;
-  const axiosClientURL = process.env.REACT_APP_CLIENT_URL;
 
   const imageBaseURL = "https://image.tmdb.org/t/p/original";
 
@@ -125,7 +124,7 @@ export default function AddList() {
         axios
           .post(`${axiosServerURL}/movie-lists`, filmList)
           .then(() => {
-            navigate(`${axiosClientURL}/movie-lists`);
+            navigate(`/movie-lists`);
           })
           .catch((err) => {
             console.log(err);
