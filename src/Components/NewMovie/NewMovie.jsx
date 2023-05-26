@@ -214,9 +214,7 @@ export default function NewMovie() {
                   : ""
               }`}
             >
-              <label className="add-list__description-label">
-                Brief Description
-              </label>
+              <label className="add-list__description-label">Notes</label>
               <textarea
                 className={`add-list__description-input ${
                   error && isEmpty(description, { ignore_whitespace: true })
