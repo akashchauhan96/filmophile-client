@@ -89,6 +89,11 @@
     flex-wrap: wrap;
     gap: 1.5rem;
     align-items: flex-start;
+
+    @include tablet {
+      max-width: 63.75rem;
+      margin: 0 auto;
+    }
   }
   &__movie-card {
     width: 25vw;
