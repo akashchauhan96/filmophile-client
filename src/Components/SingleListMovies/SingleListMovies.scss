@@ -29,16 +29,8 @@
 
     @include tablet {
       max-width: 63.75rem;
-      margin: 1rem auto 2rem;
+      margin: 1rem 1rem 2rem;
     }
-  }
-  &__profile-container {
-    width: 40px;
-  }
-  &__profile-pic {
-    width: 100%;
-    border-radius: 50%;
-    border: 0.0625rem solid $accent-color;
   }
   &__user-details {
     font-size: 0.75rem;
@@ -49,7 +41,7 @@
 
     @include tablet {
       max-width: 63.75rem;
-      margin: 0 auto 1rem;
+      margin: 0 1rem 1rem;
     }
   }
   &__description {
@@ -59,7 +51,7 @@
 
     @include tablet {
       max-width: 63.75rem;
-      margin: 0 auto 2rem;
+      margin: 0 1rem 2rem;
     }
   }
 
@@ -84,6 +76,10 @@
     &:hover {
       background-color: darkgreen;
     }
+
+    @include tablet {
+      margin: 0 1rem 2rem;
+    }
   }
   &__movies {
     border-top: 2px solid $secondary-text;
@@ -98,7 +94,7 @@
     @include tablet {
       max-width: 63.75rem;
       margin: 0 auto;
-      padding: 2rem 0 3rem;
+      padding: 2rem 1rem 3rem;
     }
   }
   &__movie-card {
