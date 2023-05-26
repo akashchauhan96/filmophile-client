@@ -22,9 +22,13 @@
     object-position: top;
   }
   &__list-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     margin: 1.5rem 1rem 0;
 
-    @include mid-tablet {
+    @include tablet {
+      max-width: 63.75rem;
       margin: 2rem auto 0;
     }
   }
