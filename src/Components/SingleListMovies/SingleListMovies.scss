@@ -24,7 +24,7 @@
   &__user {
     display: flex;
     align-items: center;
-    margin: 1rem 1rem 2rem;
+    margin: 1rem auto 2rem;
     gap: 1rem;
 
     @include tablet {
@@ -37,7 +37,7 @@
     font-family: $open-sans;
   }
   &__title {
-    margin: 0 1rem 1rem;
+    margin: 0 auto 1rem;
 
     @include tablet {
       max-width: 63.75rem;
@@ -45,7 +45,7 @@
     }
   }
   &__description {
-    margin: 0 1rem 2rem;
+    margin: 0 auto 2rem;
     font-family: $open-sans;
     color: $secondary-text;
 
