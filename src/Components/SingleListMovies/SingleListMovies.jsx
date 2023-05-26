@@ -39,43 +39,45 @@ export default function SingleListMovies() {
             alt="The hero image represented by the first image of the movie on the list"
           />
         </div>
-        <div className="single-list__user">
-          <span className="single-list__user-details">
-            List created by Akash Chauhan
-          </span>
-        </div>
-        <h2 className="single-list__title">{moviesOnList[0].name}</h2>
-        <p className="single-list__description">
-          {moviesOnList[0].description}
-        </p>
-        <div className="single-list__button-container">
-          <button className="single-list__edit-list" onClick={handleOnClick}>
-            <img src={editIcon} alt="Edit icon represented by a pencil" />
-            Edit This Movie List
-          </button>
-        </div>
-        <div className="single-list__movies">
-          {moviesOnList.map((movie) => {
-            return (
-              <div className="single-list__movie-card" key={movie.id}>
-                <div className="single-list__image-container">
-                  <img
-                    className="single-list__movie-image"
-                    src={movie.image_url}
-                    alt="Image of movie belonging to this particular list"
-                  />
-                  <div className="single-list__movie-info">
-                    <p className="single-list__movie-title">
-                      {movie.movie_name}
-                    </p>
-                    <p className="single-list__movie-release">
-                      {movie.release_year}
-                    </p>
+        <div className="single-list__list-container">
+          <div className="single-list__user">
+            <span className="single-list__user-details">
+              List created by Akash Chauhan
+            </span>
+          </div>
+          <h2 className="single-list__title">{moviesOnList[0].name}</h2>
+          <p className="single-list__description">
+            {moviesOnList[0].description}
+          </p>
+          <div className="single-list__button-container">
+            <button className="single-list__edit-list" onClick={handleOnClick}>
+              <img src={editIcon} alt="Edit icon represented by a pencil" />
+              Edit This Movie List
+            </button>
+          </div>
+          <div className="single-list__movies">
+            {moviesOnList.map((movie) => {
+              return (
+                <div className="single-list__movie-card" key={movie.id}>
+                  <div className="single-list__image-container">
+                    <img
+                      className="single-list__movie-image"
+                      src={movie.image_url}
+                      alt="Image of movie belonging to this particular list"
+                    />
+                    <div className="single-list__movie-info">
+                      <p className="single-list__movie-title">
+                        {movie.movie_name}
+                      </p>
+                      <p className="single-list__movie-release">
+                        {movie.release_year}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </section>
     );

@@ -21,48 +21,29 @@
     object-fit: cover;
     object-position: top;
   }
-  &__user {
-    display: flex;
-    align-items: center;
-    margin: 1rem 1rem 2rem;
-    gap: 1rem;
+  &__list-container {
+    margin: 2rem 1rem 0;
 
     @include tablet {
       max-width: 63.75rem;
-      padding: 0 1rem;
-      margin: 1rem auto 2rem;
+      margin: 2rem auto 0;
     }
+  }
+  &__user {
+    margin: 0 0 2rem;
+    gap: 1rem;
   }
   &__user-details {
     font-size: 0.75rem;
     font-family: $open-sans;
   }
   &__title {
-    margin: 0 1rem 1rem;
-
-    @include tablet {
-      padding: 0 1rem;
-      max-width: 63.75rem;
-      margin: 0 auto 1rem;
-    }
+    margin: 0 0 1rem;
   }
   &__description {
-    margin: 0 1rem 2rem;
+    margin: 0 0 2rem;
     font-family: $open-sans;
     color: $secondary-text;
-
-    @include tablet {
-      max-width: 63.75rem;
-      padding: 0 1rem;
-      margin: 0 auto 2rem;
-    }
-  }
-
-  &__button-container {
-    @include tablet {
-      max-width: 63.75rem;
-      margin: 0 auto;
-    }
   }
   &__edit-list {
     display: flex;
@@ -74,7 +55,7 @@
     color: $primary-text;
     cursor: pointer;
     border-radius: 0.625rem;
-    margin: 0 1rem 2rem;
+    margin: 0 0 2rem;
 
     &:hover {
       background-color: darkgreen;
@@ -89,12 +70,6 @@
     flex-wrap: wrap;
     gap: 1.5rem;
     align-items: flex-start;
-
-    @include tablet {
-      padding: 2rem 1rem 3rem;
-      max-width: 63.75rem;
-      margin: 0 auto;
-    }
   }
   &__movie-card {
     width: 25vw;
