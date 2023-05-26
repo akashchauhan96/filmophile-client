@@ -91,6 +91,7 @@
     align-items: flex-start;
 
     @include tablet {
+      padding: 2rem 1rem 3rem;
       max-width: 63.75rem;
       margin: 0 auto;
     }
