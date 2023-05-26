@@ -24,12 +24,12 @@
   &__user {
     display: flex;
     align-items: center;
-    max-width: 63.75rem;
-    margin: 1rem auto 2rem;
+    margin: 1rem 1rem 2rem;
     gap: 1rem;
 
     @include tablet {
-      margin: 1rem 1rem 2rem;
+      max-width: 63.75rem;
+      margin: 1rem auto 2rem;
     }
   }
   &__user-details {
@@ -37,21 +37,21 @@
     font-family: $open-sans;
   }
   &__title {
-    max-width: 63.75rem;
-    margin: 0 auto 1rem;
+    margin: 0 1rem 1rem;
 
     @include tablet {
-      margin: 0 1rem 1rem;
+      max-width: 63.75rem;
+      margin: 0 auto 1rem;
     }
   }
   &__description {
-    max-width: 63.75rem;
-    margin: 0 auto 2rem;
+    margin: 0 1rem 2rem;
     font-family: $open-sans;
     color: $secondary-text;
 
     @include tablet {
-      margin: 0 1rem 2rem;
+      max-width: 63.75rem;
+      margin: 0 auto 2rem;
     }
   }
 
