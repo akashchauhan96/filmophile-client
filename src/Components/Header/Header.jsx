@@ -1,6 +1,5 @@
 import logo from "../../assets/icons/filmophile-icon.svg";
 import { Link } from "react-router-dom";
-import profilePic from "../../assets/images/user-profile-pic.jpg";
 import "./Header.scss";
 
 export default function Header() {
@@ -25,13 +24,6 @@ export default function Header() {
               </Link>
             </ul>
           </nav>
-          <div className="header__user-container">
-            <img
-              src={profilePic}
-              alt="User profile picture"
-              className="header__user-pic"
-            />
-          </div>
         </div>
       </div>
     </header>

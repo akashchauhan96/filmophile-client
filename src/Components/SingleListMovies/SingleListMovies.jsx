@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./SingleListMovies.scss";
-import userPic from "../../assets/images/user-profile-pic.jpg";
 import editIcon from "../../assets/icons/edit-icon.svg";
 import { useNavigate } from "react-router-dom";
 
@@ -41,13 +40,6 @@ export default function SingleListMovies() {
           />
         </div>
         <div className="single-list__user">
-          <div className="single-list__profile-container">
-            <img
-              className="single-list__profile-pic"
-              src={userPic}
-              alt="Profile picture of user who created this movie list"
-            />
-          </div>
           <span className="single-list__user-details">
             List created by Akash Chauhan
           </span>
