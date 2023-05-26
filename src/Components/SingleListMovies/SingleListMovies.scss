@@ -29,6 +29,7 @@
 
     @include tablet {
       max-width: 63.75rem;
+      padding: 0 1rem;
       margin: 1rem auto 2rem;
     }
   }
@@ -40,6 +41,7 @@
     margin: 0 1rem 1rem;
 
     @include tablet {
+      padding: 0 1rem;
       max-width: 63.75rem;
       margin: 0 auto 1rem;
     }
@@ -51,6 +53,7 @@
 
     @include tablet {
       max-width: 63.75rem;
+      padding: 0 1rem;
       margin: 0 auto 2rem;
     }
   }
@@ -71,14 +74,10 @@
     color: $primary-text;
     cursor: pointer;
     border-radius: 0.625rem;
-    margin: 0 0 2rem;
+    margin: 0 1rem 2rem;
 
     &:hover {
       background-color: darkgreen;
-    }
-
-    @include tablet {
-      margin: 0 1rem 2rem;
     }
   }
   &__movies {
@@ -93,8 +92,6 @@
 
     @include tablet {
       max-width: 63.75rem;
-      margin: 0 auto;
-      padding: 2rem 1rem 3rem;
     }
   }
   &__movie-card {
