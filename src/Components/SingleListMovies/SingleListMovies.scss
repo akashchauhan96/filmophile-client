@@ -22,10 +22,9 @@
     object-position: top;
   }
   &__list-container {
-    margin: 2rem 1rem 0;
+    margin: 1.5rem 1rem 0;
 
-    @include tablet {
-      max-width: 63.75rem;
+    @include mid-tablet {
       margin: 2rem auto 0;
     }
   }
@@ -64,7 +63,6 @@
   &__movies {
     border-top: 2px solid $secondary-text;
     padding: 2rem 0 3rem;
-    margin: 0 1rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

@@ -12,6 +12,12 @@
   }
 }
 
+@mixin mid-tablet {
+  @media (min-width: $mid-tablet-size) {
+    @content;
+  }
+}
+
 @mixin desktop {
   @media (min-width: $desktop-size) {
     @content;
