@@ -28,25 +28,32 @@
     margin: 1.5rem 1rem 0;
 
     @include tablet {
-      max-width: 63.75rem;
-      margin: 2rem auto 0;
+      margin: 1.5rem 0 0;
+      padding: 0 1rem;
     }
   }
   &__user {
-    margin: 0 0 2rem;
+    margin: 0 auto 2rem;
     gap: 1rem;
+    max-width: 63.75rem;
   }
   &__user-details {
     font-size: 0.75rem;
     font-family: $open-sans;
   }
   &__title {
-    margin: 0 0 1rem;
+    max-width: 63.75rem;
+    margin: 0 auto 1rem;
   }
   &__description {
-    margin: 0 0 2rem;
+    max-width: 63.75rem;
+    margin: 0 auto 2rem;
     font-family: $open-sans;
     color: $secondary-text;
+  }
+  &__button-container {
+    max-width: 63.75rem;
+    margin: 0 auto;
   }
   &__edit-list {
     display: flex;
