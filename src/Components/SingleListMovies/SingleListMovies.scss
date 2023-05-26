@@ -24,11 +24,11 @@
   &__user {
     display: flex;
     align-items: center;
+    max-width: 63.75rem;
     margin: 1rem auto 2rem;
     gap: 1rem;
 
     @include tablet {
-      max-width: 63.75rem;
       margin: 1rem 1rem 2rem;
     }
   }
@@ -37,20 +37,20 @@
     font-family: $open-sans;
   }
   &__title {
+    max-width: 63.75rem;
     margin: 0 auto 1rem;
 
     @include tablet {
-      max-width: 63.75rem;
       margin: 0 1rem 1rem;
     }
   }
   &__description {
+    max-width: 63.75rem;
     margin: 0 auto 2rem;
     font-family: $open-sans;
     color: $secondary-text;
 
     @include tablet {
-      max-width: 63.75rem;
       margin: 0 1rem 2rem;
     }
   }
