@@ -92,6 +92,7 @@
 
     @include tablet {
       max-width: 63.75rem;
+      margin: 0 auto;
     }
   }
   &__movie-card {
