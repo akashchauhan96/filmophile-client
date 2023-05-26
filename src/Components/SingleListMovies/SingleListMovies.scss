@@ -22,9 +22,6 @@
     object-position: top;
   }
   &__list-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
     margin: 1.5rem 1rem 0;
 
     @include tablet {
@@ -33,27 +30,40 @@
     }
   }
   &__user {
-    margin: 0 auto 2rem;
-    gap: 1rem;
-    max-width: 63.75rem;
+    margin: 0 0 2rem;
+
+    @include tablet {
+      max-width: 63.75rem;
+      margin: 0 auto 2rem;
+    }
   }
   &__user-details {
     font-size: 0.75rem;
     font-family: $open-sans;
   }
   &__title {
-    max-width: 63.75rem;
-    margin: 0 auto 1rem;
+    margin: 0 0 1rem;
+
+    @include tablet {
+      max-width: 63.75rem;
+      margin: 0 auto 1rem;
+    }
   }
   &__description {
-    max-width: 63.75rem;
-    margin: 0 auto 2rem;
+    margin: 0 0 2rem;
     font-family: $open-sans;
     color: $secondary-text;
+
+    @include tablet {
+      max-width: 63.75rem;
+      margin: 0 auto 2rem;
+    }
   }
   &__button-container {
-    max-width: 63.75rem;
-    margin: 0 auto;
+    @include tablet {
+      max-width: 63.75rem;
+      margin: 0 auto;
+    }
   }
   &__edit-list {
     display: flex;
