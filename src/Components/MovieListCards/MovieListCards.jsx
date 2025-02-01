@@ -77,7 +77,6 @@ export default function MovieListCards() {
 
   const handleOnClick = async (id) => {
     id = id.toString();
-    console.log(serverURL);
     const res = await axios.delete(`${serverURL}/movie-lists/${id}`);
     const newList = await axios.get(`${serverURL}/movie-lists`);
     const uniqueId = uniqueIdFilter(newList.data);

@@ -21,6 +21,7 @@ export default function NewMovie() {
   const axiosBaseURL = process.env.REACT_APP_TMDB_API_BASE_URL;
   const axiosApiKey = process.env.REACT_APP_API_KEY_QUERY;
   const axiosServerURL = process.env.REACT_APP_SERVER_URL;
+  const axiosClientURL = process.env.REACT_APP_CLIENT_URL;
 
   const imageBaseURL = "https://image.tmdb.org/t/p/original";
 
