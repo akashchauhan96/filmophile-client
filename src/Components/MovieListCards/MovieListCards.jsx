@@ -3,6 +3,7 @@ import axios from "axios";
 import "./MovieListCards.scss";
 import deleteIcon from "../../assets/icons/delete-icon.svg";
 import { Link } from "react-router-dom";
+import React from "react";
 
 export default function MovieListCards() {
   const [getAxios, setGetAxios] = useState([]);
@@ -109,7 +110,7 @@ export default function MovieListCards() {
           <>
             {uniqueIds.map((id) => {
               return (
-                <div className="movie-lists__card" key={`${id}-${Math.random()}`}>
+                <div className="movie-lists__card" key={id}>
                   <div className="movie-lists__icon-container">
                     <img
                       src={deleteIcon}
@@ -130,16 +131,15 @@ export default function MovieListCards() {
                             })
                             .map((item) => {
                               return (
-                                <>
+                                <React.Fragment key={item.id}>
                                   <img
-                                    key={`${id}-${Math.random()}`}
                                     src={item.image_url}
                                     alt="Image of movie poster of the first movie in user's list"
                                     className="movie-lists__image"
                                   />
                                   <div className="movie-lists__image movie-lists__image--empty"></div>
                                   <div className="movie-lists__image movie-lists__image--empty"></div>
-                                </>
+                                </React.Fragment>
                               );
                             })
                         ) : getAxios.filter((movie) => {
@@ -147,13 +147,13 @@ export default function MovieListCards() {
                           }).length === 2 && twoMoviesList ? (
                           <>
                             <img
-                              key={`${id}-${Math.random()}`}
+                              key={twoMoviesList[0].id}
                               src={twoMoviesList[0].image_url}
                               alt="Image of movie poster of the first movie in user's list"
                               className="movie-lists__image"
                             />
                             <img
-                              key={`${id}-${Math.random()}`}
+                              key={twoMoviesList[1].id}
                               src={twoMoviesList[1].image_url}
                               alt="Image of movie poster of the second movie in user's list"
                               className="movie-lists__image"
@@ -172,7 +172,7 @@ export default function MovieListCards() {
                               return (
                                 <>
                                   <img
-                                    key={`${id}-${Math.random()}`}
+                                    key={item.id}
                                     src={item.image_url}
                                     alt="Image of movie poster of the first movie in user's list"
                                     className="movie-lists__image"
@@ -185,14 +185,14 @@ export default function MovieListCards() {
                         )}
                       </div>
                       <div className="movie-lists__movie-info">
-                        <h2 className="movie-lists__movie-title" key={`${id}-${Math.random()}`}>
+                        <h2 className="movie-lists__movie-title">
                           {
                             getAxios.find((movie) => {
                               return movie.id === id;
                             }).name
                           }
                         </h2>
-                        <p className="movie-lists__total-movies" key={`${id}-${Math.random()}`}>
+                        <p className="movie-lists__total-movies">
                           {`
                             ${
                               getAxios.find((movie) => {
@@ -200,7 +200,7 @@ export default function MovieListCards() {
                               }).number_of_movies
                             } Movies`}
                         </p>
-                        <p className="movie-lists__movie-description" key={`${id}-${Math.random()}`}>
+                        <p className="movie-lists__movie-description">
                           {getAxios.find((movie) => {
                             return movie.id === id;
                           }).description.length >= 65
