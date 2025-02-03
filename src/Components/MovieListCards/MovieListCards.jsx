@@ -109,7 +109,7 @@ export default function MovieListCards() {
           <>
             {uniqueIds.map((id) => {
               return (
-                <div className="movie-lists__card" key={id}>
+                <div className="movie-lists__card" key={`${id}-${Math.random()}`}>
                   <div className="movie-lists__icon-container">
                     <img
                       src={deleteIcon}
@@ -132,7 +132,7 @@ export default function MovieListCards() {
                               return (
                                 <>
                                   <img
-                                    key={id}
+                                    key={`${id}-${Math.random()}`}
                                     src={item.image_url}
                                     alt="Image of movie poster of the first movie in user's list"
                                     className="movie-lists__image"
@@ -147,15 +147,15 @@ export default function MovieListCards() {
                           }).length === 2 && twoMoviesList ? (
                           <>
                             <img
-                              key={id}
+                              key={`${id}-${Math.random()}`}
                               src={twoMoviesList[0].image_url}
                               alt="Image of movie poster of the first movie in user's list"
                               className="movie-lists__image"
                             />
                             <img
-                              key={id}
+                              key={`${id}-${Math.random()}`}
                               src={twoMoviesList[1].image_url}
-                              alt="Image of movie poster of the first movie in user's list"
+                              alt="Image of movie poster of the second movie in user's list"
                               className="movie-lists__image"
                             />
                             <div className="movie-lists__image movie-lists__image--empty"></div>
@@ -172,7 +172,7 @@ export default function MovieListCards() {
                               return (
                                 <>
                                   <img
-                                    key={id}
+                                    key={`${id}-${Math.random()}`}
                                     src={item.image_url}
                                     alt="Image of movie poster of the first movie in user's list"
                                     className="movie-lists__image"
@@ -185,14 +185,14 @@ export default function MovieListCards() {
                         )}
                       </div>
                       <div className="movie-lists__movie-info">
-                        <h2 className="movie-lists__movie-title" key={id}>
+                        <h2 className="movie-lists__movie-title" key={`${id}-${Math.random()}`}>
                           {
                             getAxios.find((movie) => {
                               return movie.id === id;
                             }).name
                           }
                         </h2>
-                        <p className="movie-lists__total-movies" key={id}>
+                        <p className="movie-lists__total-movies" key={`${id}-${Math.random()}`}>
                           {`
                             ${
                               getAxios.find((movie) => {
@@ -200,7 +200,7 @@ export default function MovieListCards() {
                               }).number_of_movies
                             } Movies`}
                         </p>
-                        <p className="movie-lists__movie-description" key={id}>
+                        <p className="movie-lists__movie-description" key={`${id}-${Math.random()}`}>
                           {getAxios.find((movie) => {
                             return movie.id === id;
                           }).description.length >= 65
